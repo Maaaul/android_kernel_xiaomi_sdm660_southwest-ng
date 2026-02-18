@@ -218,8 +218,8 @@ static int hall_probe(struct platform_device *pdev)
 			pr_err("hall_probe: request_irq fail rc=%d\n", rc);
 			goto err_irq;
 		}
-		device_init_wakeup(&pdev->dev, false);
-		irq_set_irq_wake(hall_info->irq,0);
+		device_init_wakeup(&pdev->dev, true);
+		irq_set_irq_wake(hall_info->irq,1);
 
 	} else {
 		pr_err("Macle hall irq gpio not provided\n");
