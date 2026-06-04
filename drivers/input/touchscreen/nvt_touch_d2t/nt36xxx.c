@@ -1280,8 +1280,7 @@ static void nvt_ts_work_func(void)
 	if (bTouchIsAwake == 0) {
 		input_id = (uint8_t)(point_data[1] >> 3);
 		nvt_ts_wakeup_gesture_report(input_id, point_data);
-		mutex_unlock(&ts->lock);
-		return;
+		goto XFER_ERROR;
 	}
 
 #endif
